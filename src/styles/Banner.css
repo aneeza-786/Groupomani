@@ -1,10 +1,22 @@
 .banner {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .logo {
     display: flex;
     height: 150px;
     width: 150px;
+}
+
+.log {
+    display: flex;
+    list-style: none;
+    margin-top: 65px ;
+}
+
+.el-log {
+    margin-right: 20px;
+    color: #4E5166;
+    font-weight: bold;
 }
