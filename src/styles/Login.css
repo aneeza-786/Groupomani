@@ -1,0 +1,29 @@
+.login-form {
+    display: flex;
+    justify-content: center;
+}
+
+.email, .password {
+    color: #4E5166;
+    border-color: white;
+    background-color: #FFD7D7;
+    text-align: center;
+    display: flex;
+    margin-top: 15px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.login-button {
+    border-color:#4E5166;
+    color: #FD2D01;
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 49px;
+    border-radius: 20px;
+}
+
+.login-button:hover {
+    font-size: 14px;
+}
