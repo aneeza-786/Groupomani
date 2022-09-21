@@ -6,8 +6,8 @@ function Banner() {
         <div className="banner">
             <img src={logo} alt="Groupomania" className="logo"/>
             <ul className='log'>
-                <li className='el-log'>Inscription</li>
-                <li className='el-log'>Connexion</li>
+                <a href='./Signup.js'><li className='el-log'>Inscription</li></a>
+                <a href='./Login.js'><li className='el-log'>Connexion</li></a>
             </ul>
         </div>
     )

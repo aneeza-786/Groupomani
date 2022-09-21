@@ -1,10 +1,10 @@
 import '../styles/Login.css'
-import { useState} from 'react'
-import { createAccount } from "../services/signup";
+import {useState} from 'react'
 
 function Signup() {
     const [data,setData] = useState({email:"", password:""});
     const {email,password} = data;
+    console.log(data);
     const changeHandler = e => {setData({...data,[e.target.name]:[e.target.value]});}
     const submitHandler = e => {e.preventDefault(); createAccount();}
 
@@ -19,6 +19,19 @@ function Signup() {
             </form>
         </div>
     )
+};
+
+export function createAccount(data){
+ return fetch('http://localhost:3000/api/auth/signup', {
+   method: 'POST',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   body: JSON.stringify({data})
+ })
+   .then((response) => response.json()
+    .then(({data}) => console.log(data))
+    .catch((error) => console.log(error)))
 }
 
 export default Signup
