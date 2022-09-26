@@ -1,12 +1,19 @@
 import '../styles/Login.css'
-import {useState} from 'react'
+import {useState} from 'react';
+import axios from "axios";
+
 
 function Signup() {
     const [data,setData] = useState({email:"", password:""});
     const {email,password} = data;
+    const dataString = JSON.stringify(data)
+    console.log(dataString)
     console.log(data);
     const changeHandler = e => {setData({...data,[e.target.name]:[e.target.value]});}
-    const submitHandler = e => {e.preventDefault(); createAccount();}
+    const submitHandler = e => {e.preventDefault();
+    axios.post('http://localhost:3000/api/auth/signup', data) 
+        .then(function (response) {console.log(response);})
+        .catch(function (error) {console.log(error);});}
 
     return(
         <div className='login-form'>
@@ -20,18 +27,5 @@ function Signup() {
         </div>
     )
 };
-
-export function createAccount(data){
- return fetch('http://localhost:3000/api/auth/signup', {
-   method: 'POST',
-   headers: {
-     'Content-Type': 'application/json'
-   },
-   body: JSON.stringify({data})
- })
-   .then((response) => response.json()
-    .then(({data}) => console.log(data))
-    .catch((error) => console.log(error)))
-}
 
 export default Signup
